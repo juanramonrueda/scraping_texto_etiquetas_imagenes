@@ -22,11 +22,15 @@ def menu():
 def main():
     #Inicialización de variable para que entre al bucle
     opcn_usuario = 1
+    contador_limpieza = 0
 
     while opcn_usuario != 3:
         #Llamo a una función para que haga limpieza de la pantalla al inicio del bucle
-        limpiar_pantalla.limpieza_pantalla
+        if contador_limpieza >= 1:
+            limpiar_pantalla.limpieza_pantalla()
         
+        contador_limpieza = contador_limpieza + 1
+
         #Muestro una pequeña información sobre el programa
         informacion()
         
@@ -39,7 +43,7 @@ def main():
             obtencion_texto_imagenes.funcion_scraping()
         elif opcn_usuario == 2:
             obtencion_titulares_periodicos.funcion_scraping()
-        else:
+        elif opcn_usuario == 3:
             print("\nPrograma finalizado")
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

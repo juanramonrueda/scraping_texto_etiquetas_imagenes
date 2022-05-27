@@ -40,7 +40,7 @@ def mostrar_periodicos():
 #--------------------------------------------------------------------------
 def elegir_periodico():
     #Realizo la elección del usuario del periódico que quiere consultar
-    eleccion = int(input("\nElija el periodico\n"))
+    eleccion = int(input("Elija el periodico\n"))
     
     if eleccion == 1:
         url = "https://www.eldiario.es/"
