@@ -24,16 +24,16 @@ def obtener_datos():
 
     #-----------------------------------------------------------------------------------------------------------
     #Obtención del tipo de etiqueta de la que quiere sacar información
-    tipo_etiqueta = str(input("\nIntroduzca la etiqueta de la que quiere obtener información\n"))
-
-    etiqueta = soup.find_all(tipo_etiqueta)
-
-    #-----------------------------------------------------------------------------------------------------------
-    #Dependiendo del tipo de etiqueta que introduzca el usuario realizará una acción u otra
-    if tipo_etiqueta != "img":
+    eleccion = str(input("\n¿Quiere obtener texto (t) o imágenes (i)?\n"))
+    
+    if eleccion == "t":
+        tipo_etiqueta = str(input("\nIntroduzca la etiqueta de la que quiere obtener información\n"))
+        
         obtencion_resultados_texto(etiqueta)
     else:
+        etiqueta = "img"
         descarga_imagenes(etiqueta)
+    etiqueta = soup.find_all(tipo_etiqueta)
 
 #---------------------------------------------------------------------------------------------------------------
 #Realización de la obtención mediante la Biblioteca BeautifulSoup y la etiqueta introducida
@@ -60,6 +60,7 @@ def descarga_imagenes(etiqueta):
         try:
             print(imagen['src'])
             url_imagen = imagen['src']
+            
             if url_imagen.endswith('.jpg') or url_imagen.endswith('.png'):
                 wget.download(url_imagen, out=directorio_descarga)
 
